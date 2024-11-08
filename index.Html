@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -36,20 +37,23 @@
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        /* Botones */
-        button {
+        /* Botón flotante para agregar nota */
+        .boton-agregar {
             background-color: #FF5733; /* Naranja */
             color: white;
             border: none;
-            padding: 12px 20px;
-            font-size: 16px;
+            padding: 12px;
+            font-size: 24px;
             cursor: pointer;
-            border-radius: 5px;
-            margin-top: 10px;
+            border-radius: 50%;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
             transition: background-color 0.3s ease;
         }
 
-        button:hover {
+        .boton-agregar:hover {
             background-color: #e14f2d; /* Naranja más oscuro */
         }
 
@@ -105,11 +109,11 @@
     <h1>Bloc de Notas</h1>
     
     <textarea id="nota-texto" class="nota" placeholder="Escribe una nueva nota..."></textarea>
-    <button onclick="agregarNota()">Agregar Nota</button>
 
     <div id="lista-notas" class="nota-lista"></div>
 
-    <button onclick="mostrarMasNotas()">Mostrar más</button>
+    <!-- Botón flotante para agregar nota -->
+    <button class="boton-agregar" onclick="agregarNota()">+</button>
 
     <script>
         let notaEditadaIndex = -1; // Variable para identificar la nota que se está editando
@@ -181,10 +185,6 @@
             mostrarNotas(); // Actualizar la lista de notas
         }
 
-        // Función para mostrar más notas (en este caso, muestra todas al cargar)
-        function mostrarMasNotas() {
-            mostrarNotas();
-        }
     </script>
 </body>
 </html>
