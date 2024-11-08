@@ -1,193 +1,190 @@
 <!DOCTYPE html>
 <html lang="es">
- <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bloc de Notas</title>
-  <style>
-   /* Diseño general */
-   body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    margin: 0;
-   }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloc de Notas</title>
+    <style>
+        /* Diseño general */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            margin: 0;
+        }
 
-   h1 {
-    color: #ff5733; /* Naranja */
-    font-size: 2em;
-    margin-bottom: 20px;
-   }
+        h1 {
+            color: #FF5733; /* Naranja */
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
 
-   /* Estilo del área de texto */
-   .nota {
-    width: 80%;
-    height: 150px;
-    margin: 10px 0;
-    padding: 15px;
-    font-size: 16px;
-    border: 1px solid #ff5733; /* Naranja */
-    border-radius: 8px;
-    background-color: white;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-   }
+        /* Estilo del área de texto */
+        .nota {
+            width: 80%;
+            height: 150px;
+            margin: 10px 0;
+            padding: 15px;
+            font-size: 16px;
+            border: 1px solid #FF5733; /* Naranja */
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-   /* Botones */
-   button {
-    background-color: #ff5733; /* Naranja */
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 10px;
-    transition: background-color 0.3s ease;
-   }
+        /* Botones */
+        button {
+            background-color: #FF5733; /* Naranja */
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
 
-   button:hover {
-    background-color: #e14f2d; /* Naranja más oscuro */
-   }
+        button:hover {
+            background-color: #e14f2d; /* Naranja más oscuro */
+        }
 
-   /* Estilo de la lista de notas */
-   .nota-lista {
-    margin-top: 20px;
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   }
+        /* Estilo de la lista de notas */
+        .nota-lista {
+            margin-top: 20px;
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-   /* Estilo para cada item de nota */
-   .nota-item {
-    background-color: white;
-    padding: 15px;
-    margin: 10px 0;
-    width: 100%;
-    border: 1px solid #ff5733; /* Naranja */
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-   }
+        /* Estilo para cada item de nota */
+        .nota-item {
+            background-color: white;
+            padding: 15px;
+            margin: 10px 0;
+            width: 100%;
+            border: 1px solid #FF5733; /* Naranja */
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-   /* Estilo para los botones de editar y eliminar */
-   .nota-item button {
-    background-color: #fff;
-    color: #ff5733; /* Naranja */
-    border: 1px solid #ff5733;
-    padding: 8px 12px;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-   }
+        /* Estilo para los botones de editar y eliminar */
+        .nota-item button {
+            background-color: #fff;
+            color: #FF5733; /* Naranja */
+            border: 1px solid #FF5733;
+            padding: 8px 12px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
 
-   .nota-item button:hover {
-    background-color: #ff5733;
-    color: white;
-   }
+        .nota-item button:hover {
+            background-color: #FF5733;
+            color: white;
+        }
 
-   /* Asegura que el contenedor de las notas esté centrado */
-   .nota-item button {
-    margin-left: 10px;
-   }
-  </style>
- </head>
- <body>
-  <h1>Bloc de Notas</h1>
+        /* Asegura que el contenedor de las notas esté centrado */
+        .nota-item button {
+            margin-left: 10px;
+        }
 
-  <textarea
-   id="nota-texto"
-   class="nota"
-   placeholder="Escribe una nueva nota..."
-  ></textarea>
-  <button onclick="agregarNota()">Agregar Nota</button>
+    </style>
+</head>
+<body>
+    <h1>Bloc de Notas</h1>
+    
+    <textarea id="nota-texto" class="nota" placeholder="Escribe una nueva nota..."></textarea>
+    <button onclick="agregarNota()">Agregar Nota</button>
 
-  <div id="lista-notas" class="nota-lista"></div>
+    <div id="lista-notas" class="nota-lista"></div>
 
-  <button onclick="mostrarMasNotas()">Mostrar más</button>
+    <button onclick="mostrarMasNotas()">Mostrar más</button>
 
-  <script>
-   let notaEditadaIndex = -1 // Variable para identificar la nota que se está editando
+    <script>
+        let notaEditadaIndex = -1; // Variable para identificar la nota que se está editando
 
-   // Función para cargar las notas guardadas
-   document.addEventListener('DOMContentLoaded', () => {
-    mostrarNotas()
-   })
+        // Función para cargar las notas guardadas desde localStorage
+        document.addEventListener("DOMContentLoaded", () => {
+            mostrarNotas();
+        });
 
-   // Función para agregar o editar una nota
-   function agregarNota() {
-    const textoNota = document.getElementById('nota-texto').value
-    if (textoNota) {
-     let notas = JSON.parse(localStorage.getItem('notas')) || []
+        // Función para agregar o editar una nota
+        function agregarNota() {
+            const textoNota = document.getElementById("nota-texto").value;
+            if (textoNota) {
+                let notas = JSON.parse(localStorage.getItem("notas")) || [];
+                
+                if (notaEditadaIndex >= 0) {
+                    // Si se está editando, reemplazar la nota
+                    notas[notaEditadaIndex] = textoNota;
+                    notaEditadaIndex = -1; // Resetear la variable después de editar
+                } else {
+                    // Si no, agregar una nueva nota
+                    notas.push(textoNota);
+                }
+                
+                localStorage.setItem("notas", JSON.stringify(notas)); // Guardar notas en localStorage
+                document.getElementById("nota-texto").value = ""; // Limpiar el campo de texto
+                mostrarNotas();
+            }
+        }
 
-     if (notaEditadaIndex >= 0) {
-      // Si se está editando, reemplazar la nota
-      notas[notaEditadaIndex] = textoNota
-      notaEditadaIndex = -1 // Resetear la variable después de editar
-     } else {
-      // Si no, agregar una nueva nota
-      notas.push(textoNota)
-     }
+        // Función para mostrar las notas almacenadas desde localStorage
+        function mostrarNotas() {
+            const listaNotas = document.getElementById("lista-notas");
+            const notas = JSON.parse(localStorage.getItem("notas")) || [];
+            listaNotas.innerHTML = ""; // Limpiar la lista de notas
+            for (let i = 0; i < notas.length; i++) {
+                const divNota = document.createElement("div");
+                divNota.classList.add("nota-item");
+                divNota.textContent = notas[i];
+                
+                // Crear botón de editar
+                const btnEditar = document.createElement("button");
+                btnEditar.textContent = "Editar";
+                btnEditar.onclick = () => editarNota(i);
+                divNota.appendChild(btnEditar);
 
-     localStorage.setItem('notas', JSON.stringify(notas))
-     document.getElementById('nota-texto').value = '' // Limpiar el campo de texto
-     mostrarNotas()
-    }
-   }
+                // Crear botón de eliminar
+                const btnEliminar = document.createElement("button");
+                btnEliminar.textContent = "Eliminar";
+                btnEliminar.onclick = () => eliminarNota(i);
+                divNota.appendChild(btnEliminar);
 
-   // Función para mostrar las notas almacenadas
-   function mostrarNotas() {
-    const listaNotas = document.getElementById('lista-notas')
-    const notas = JSON.parse(localStorage.getItem('notas')) || []
-    listaNotas.innerHTML = '' // Limpiar la lista de notas
-    for (let i = 0; i < notas.length; i++) {
-     const divNota = document.createElement('div')
-     divNota.classList.add('nota-item')
-     divNota.textContent = notas[i]
+                listaNotas.appendChild(divNota);
+            }
+        }
 
-     // Crear botón de editar
-     const btnEditar = document.createElement('button')
-     btnEditar.textContent = 'Editar'
-     btnEditar.onclick = () => editarNota(i)
-     divNota.appendChild(btnEditar)
+        // Función para editar una nota
+        function editarNota(index) {
+            const notas = JSON.parse(localStorage.getItem("notas")) || [];
+            document.getElementById("nota-texto").value = notas[index]; // Cargar el texto de la nota para editar
+            notaEditadaIndex = index; // Guardar el índice de la nota que se está editando
+        }
 
-     // Crear botón de eliminar
-     const btnEliminar = document.createElement('button')
-     btnEliminar.textContent = 'Eliminar'
-     btnEliminar.onclick = () => eliminarNota(i)
-     divNota.appendChild(btnEliminar)
+        // Función para eliminar una nota
+        function eliminarNota(index) {
+            let notas = JSON.parse(localStorage.getItem("notas")) || [];
+            notas.splice(index, 1); // Eliminar la nota en el índice dado
+            localStorage.setItem("notas", JSON.stringify(notas)); // Guardar el nuevo array de notas
+            mostrarNotas(); // Actualizar la lista de notas
+        }
 
-     listaNotas.appendChild(divNota)
-    }
-   }
-
-   // Función para editar una nota
-   function editarNota(index) {
-    const notas = JSON.parse(localStorage.getItem('notas')) || []
-    document.getElementById('nota-texto').value = notas[index] // Cargar el texto de la nota para editar
-    notaEditadaIndex = index // Guardar el índice de la nota que se está editando
-   }
-
-   // Función para eliminar una nota
-   function eliminarNota(index) {
-    let notas = JSON.parse(localStorage.getItem('notas')) || []
-    notas.splice(index, 1) // Eliminar la nota en el índice dado
-    localStorage.setItem('notas', JSON.stringify(notas))
-    mostrarNotas() // Actualizar la lista de notas
-   }
-
-   // Función para mostrar más notas (en este caso, muestra todas al cargar)
-   function mostrarMasNotas() {
-    mostrarNotas()
-   }
-  </script>
- </body>
+        // Función para mostrar más notas (en este caso, muestra todas al cargar)
+        function mostrarMasNotas() {
+            mostrarNotas();
+        }
+    </script>
+</body>
 </html>
